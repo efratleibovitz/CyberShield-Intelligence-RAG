@@ -1,0 +1,80 @@
+{
+    "decisions": [
+        {
+            "id": "DEC-2026-001",
+            "title": "Use Redis for Real-Time Request Counting",
+            "summary": "Handle high-concurrency traffic filtering using Redis",
+            "tags": [
+                "Redis",
+                "Traffic Filtering"
+            ],
+            "observed_at": "2026-02-10"
+        },
+        {
+            "id": "DEC-2026-002",
+            "title": "Move to Centralized S3 Storage",
+            "summary": "Improve scalability by moving from local logging to centralized S3 storage",
+            "tags": [
+                "S3 Storage",
+                "Scalability"
+            ],
+            "observed_at": "2026-03-05"
+        },
+        {
+            "id": "DEC-NET-09",
+            "title": "Restrict Port 22 to Internal VPN IPs",
+            "summary": "Restrict Port 22 (SSH) to Internal VPN IPs only",
+            "tags": [
+                "Networking",
+                "Firewall"
+            ],
+            "observed_at": null
+        }
+    ],
+    "rules": [
+        {
+            "id": "RULE-ALERT-01",
+            "rule": "Trigger SMS to Security Manager and log to blockchain ledger for 'Critical' severity alerts",
+            "scope": "Communication Protocols",
+            "notes": null
+        },
+        {
+            "id": "RULE-AUTH-02",
+            "rule": "Authentication tokens must expire within 15 minutes of inactivity",
+            "scope": "Authentication",
+            "notes": null
+        },
+        {
+            "id": "RULE-UI-RTL",
+            "rule": "Support Hebrew and Arabic right-to-left alignment for tables, alert logs, and navigation menus",
+            "scope": "UI/UX",
+            "notes": null
+        },
+        {
+            "id": "Firewall Rule #1",
+            "rule": "Allow Port 443 (HTTPS) only",
+            "scope": "Networking",
+            "notes": null
+        },
+        {
+            "id": "Firewall Rule #2",
+            "rule": "Automatically block Port 80 (HTTP)",
+            "scope": "Networking",
+            "notes": null
+        }
+    ],
+    "warnings": [
+        {
+            "id": "WARN-SEC-01",
+            "area": "Security",
+            "message": "SQL Injection scanner uses outdated Regex patterns, risk of bypass is high",
+            "severity": "HIGH"
+        },
+        {
+            "id": "WARN-AUTH-04",
+            "area": "Authentication",
+            "message": "Non-sensitive customer fields are in plain text, must be addressed immediately",
+            "severity": "CRITICAL"
+        }
+    ]
+}

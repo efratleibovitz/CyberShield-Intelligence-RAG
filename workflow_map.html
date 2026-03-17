@@ -1,0 +1,48 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>CyberShield Workflow Diagram</title>
+        <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+        <style type="text/css">
+            #workflow-network { width: 100%; height: 600px; border: 1px solid lightgray; background-color: #f9f9f9; }
+            h2 { font-family: Arial, sans-serif; text-align: center; color: #2c3e50; }
+        </style>
+    </head>
+    <body>
+        <h2>🛡️ CyberShield AI Workflow Design</h2>
+        <div id="workflow-network"></div>
+        <script type="text/javascript">
+            var nodes = new vis.DataSet([
+                { id: 1, label: 'StartEvent', color: '#7fb3d5' },
+                { id: 2, label: 'Router Step', color: '#f7dc6f' },
+                { id: 3, label: 'Handle Structured', color: '#82e0aa' },
+                { id: 4, label: 'Ingest & Retrieve', color: '#82e0aa' },
+                { id: 5, label: 'Validate Context', color: '#f8c471' },
+                { id: 6, label: 'Generate Answer', color: '#82e0aa' },
+                { id: 7, label: 'StopEvent', color: '#ec7063' }
+            ]);
+
+            var edges = new vis.DataSet([
+                { from: 1, to: 2, label: 'query' },
+                { from: 2, to: 3, label: 'RouteEvent (structured)' },
+                { from: 2, to: 4, label: 'RouteEvent (semantic)' },
+                { from: 3, to: 7, label: 'Final Answer' },
+                { from: 4, to: 5, label: 'RetrievalEvent' },
+                { from: 5, to: 4, label: 'Retry (search_iteration 2)', dashes: true },
+                { from: 5, to: 6, label: 'ValidationEvent (True)' },
+                { from: 6, to: 7, label: 'Final Answer' }
+            ]);
+
+            var container = document.getElementById('workflow-network');
+            var data = { nodes: nodes, edges: edges };
+            var options = {
+                physics: { enabled: true },
+                edges: { arrows: 'to', font: { align: 'middle' } },
+                nodes: { shape: 'box', margin: 10, font: { size: 16 } }
+            };
+            var network = new vis.Network(container, data, options);
+        </script>
+    </body>
+    </html>
+    

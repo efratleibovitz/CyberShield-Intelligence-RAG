@@ -1,8 +1,11 @@
 # UI/UX Dashboard Standards
 
-## Dashboard Features
-1. **Global Threat Map**: Real-time visualization of attack hotspots.
-2. **Panic Mode**: A prominent button to disconnect all servers from the grid instantly.
+## Dashboard Components
+1. **Global Threat Map**: Real-time visualization using WebGL.
+2. **Panic Mode**: A prominent red button (#FF0000) to disconnect all servers instantly.
+3. **Alert Feed**: Sorted by 'Latest First'.
 
-## RTL Support
-- Ensure all tables and alert logs support **Hebrew** and **Arabic** alignment.
+## RTL & Localization
+- **RULE-UI-RTL**: All tables, alert logs, and navigation menus MUST support **Hebrew** and **Arabic** right-to-left alignment.
+- Font: Use 'Assistant' for Hebrew and 'Rubik' for English.
+- Observed: 2026-01-15 - Decision to implement full RTL support across the management console.

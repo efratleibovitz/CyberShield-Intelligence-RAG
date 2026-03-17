@@ -104,7 +104,7 @@
 
 import os
 import warnings
-from llama_index.core import SimpleDirectoryReader, VectorStoreIndex, StorageContext
+from llama_index.core import SimpleDirectoryReader, VectorStoreIndex, StorageContext, load_index_from_storage
 from llama_index.core.node_parser import SentenceSplitter
 from llama_index.core.embeddings import MockEmbedding # מובנה בתוך הספרייה, לא דורש הורדה!
 
@@ -138,6 +138,18 @@ def run_pipeline():
     print("\n✅✅✅ הצלחנו!!! ✅✅✅")
     print("האינדקס נשמר בתיקיית storage.")
     print("עכשיו אפשר להפעיל את הצ'אט.")
+def get_index():
+    # פונקציה שטוענת את האינדקס הקיים מהזיכרון
+    if os.path.exists("./storage"):
+        storage_context = StorageContext.from_defaults(persist_dir="./storage")
+        # שימי לב: אם השתמשת ב-MockEmbedding ביצירה, חייבים להשתמש בו גם בטעינה
+        return load_index_from_storage(storage_context, embed_model=MockEmbedding(embed_dim=384))
+    else:
+        # אם אין אינדקס, מריצים את ה-pipeline ליצירה חדשה
+        return run_pipeline()
 
+# משתנה גלובלי שיהיה זמין לייבוא
+index = get_index()
 if __name__ == "__main__":
     run_pipeline()
+
