@@ -1,0 +1,15 @@
+# API Keys and Secrets
+.env
+
+# Python folders
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local storage (vectors)
+storage/
+
+# Environments
+.venv/
+env/
+venv/
